@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+	<style>
+	  /* This helps the ng-show/ng-hide animations start at the right place. */
+      /* Since Angular has this but needs to load, this gives us the class early. */
+      .ng-hide { display: none!important; }
+    </style>
+    <title ng-bind="title">job vis</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="styles/lib-553cd98d12.css">
+
+    <link rel="stylesheet" href="styles/app-0a08a67b57.css">
+
+	<style>
+
+	  .logo-text {
+	  font-size:26px;
+	  font-family:Arial;
+	  fill:#fefefe;
+	  fill-opacity:1;
+	  }
+
+	  .square {
+	  fill:none;
+	  stroke:#fefefe;
+	  stroke-width:1;
+	  stroke-linecap:miter;
+	  stroke-opacity:1;
+	  stroke-dashoffset: 0;
+	  stroke-dasharray: 90,0;
+	  }
+
+	  .check {
+	  fill: none;
+	  stroke: #238975;
+	  stroke-width: 1.5px;
+	  stroke-linecap: butt;
+	  stroke-opacity: 1;
+	  }
+
+	  #splash-page.loading #loading-overlay-wrap {
+      position: fixed;
+	  width: 100%;
+	  height: 100%;
+	  display: flex;
+	  align-items: center;
+	  background: rgba(97, 97, 143, 0.85);
+	  top: 0;
+	  }
+	  #splash-page.loading #loading-overlay {
+	  height: 80%;
+	  width: 100%;
+	  margin: 0 auto;
+	  }
+
+	  #splash-page .loading-message {
+	  width: 100%;
+	  text-align: center;
+	  font-size: 56px;
+	  color: #eee;
+	  }
+	  #splash-page .loader {
+	  margin-left: 50%;
+	  margin-top: 100px;
+	  }
+	</style>
+  </head>
+  <body>
+	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+	  <symbol id="svg-logo" viewBox="0 0 450 50">
+		<title>job vis logo</title>
+		<text
+		   x="75.9"
+		   y="34.84">
+		  <tspan
+			 class="logo-text"
+			 x="75.9"
+			 y="34.84">job vis</tspan>
+		</text>
+		<path
+		   class="square"
+		   d="M 47.875,15.8125 37.3125,15.8 37.3125,35.25 58.4375,35.25 58.4375,30.71875" />
+		<path
+		   class="check"
+		   d="M 42.77996,22.246059 49.851028,28.61002 64.877047,15.174991" />
+	  </symbol>
+	</svg>
+	<div>
+      <div ng-include="'app/layout/shell.template.html'"></div>
+      <div id="splash-page" ng-show="vm.showSplash">
+        <div class="page-splash">
+          <div class="page-splash-message">
+			Application loading
+          </div>
+          <div class="progress progress-striped active page-progress-bar">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/lib-f0946a76d0.js"></script>
+
+    <script src="js/app-b1acf4e808.js"></script>
+  </body>
+</html>
