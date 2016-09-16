@@ -15,37 +15,11 @@
     <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
 
-    <link rel="stylesheet" href="styles/lib-553cd98d12.css">
+    <link rel="stylesheet" href="styles/lib-7c6e2e68cc.css">
 
-    <link rel="stylesheet" href="styles/app-0a08a67b57.css">
+    <link rel="stylesheet" href="styles/app-beca055c71.css">
 
 	<style>
-
-	  .logo-text {
-	  font-size:26px;
-	  font-family:Arial;
-	  fill:#fefefe;
-	  fill-opacity:1;
-	  }
-
-	  .square {
-	  fill:none;
-	  stroke:#fefefe;
-	  stroke-width:1;
-	  stroke-linecap:miter;
-	  stroke-opacity:1;
-	  stroke-dashoffset: 0;
-	  stroke-dasharray: 90,0;
-	  }
-
-	  .check {
-	  fill: none;
-	  stroke: #238975;
-	  stroke-width: 1.5px;
-	  stroke-linecap: butt;
-	  stroke-opacity: 1;
-	  }
-
 	  #splash-page.loading #loading-overlay-wrap {
       position: fixed;
 	  width: 100%;
@@ -71,44 +45,96 @@
 	  margin-left: 50%;
 	  margin-top: 100px;
 	  }
+
+	  /* CSS Loading animation */
+	  @-webkit-keyframes ball-scale-multiple {
+	  0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+	    opacity: 0;
+	  }
+	  5% {
+        opacity: 1;
+	  }
+	  100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+	    opacity: 0;
+	  }
+	  }
+
+	  @keyframes ball-scale-multiple {
+	  0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 0;
+	  }
+	  5% {
+        opacity: 1;
+	  }
+	  100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+	    opacity: 0;
+	  }
+	  }
+
+	  .ball-scale-multiple {
+	    position: relative;
+	    -webkit-transform: translateY(-50px);
+        -ms-transform: translateY(-50px);
+        transform: translateY(-50px);
+	  }
+
+	  .ball-scale-multiple > div:nth-child(2) {
+        -webkit-animation-delay: -0.4s;
+        animation-delay: -0.4s;
+	  }
+	  .ball-scale-multiple > div:nth-child(3) {
+        -webkit-animation-delay: -0.2s;
+        animation-delay: -0.2s;
+	  }
+	  .ball-scale-multiple > div {
+        background-color: #fff;
+        border-radius: 100%;
+        margin: 2px;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        position: absolute;
+        left: -50px;
+        top: 0px;
+        opacity: 0;
+        margin: 0;
+        width: 200px;
+        height: 200px;
+      -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+      animation: ball-scale-multiple 1s 0s linear infinite;
+	  }
 	</style>
   </head>
   <body>
-	<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
-	  <symbol id="svg-logo" viewBox="0 0 450 50">
-		<title>job vis logo</title>
-		<text
-		   x="75.9"
-		   y="34.84">
-		  <tspan
-			 class="logo-text"
-			 x="75.9"
-			 y="34.84">job vis</tspan>
-		</text>
-		<path
-		   class="square"
-		   d="M 47.875,15.8125 37.3125,15.8 37.3125,35.25 58.4375,35.25 58.4375,30.71875" />
-		<path
-		   class="check"
-		   d="M 42.77996,22.246059 49.851028,28.61002 64.877047,15.174991" />
-	  </symbol>
-	</svg>
 	<div>
       <div ng-include="'app/layout/shell.template.html'"></div>
-      <div id="splash-page" ng-show="vm.showSplash">
-        <div class="page-splash">
-          <div class="page-splash-message">
-			Application loading
-          </div>
-          <div class="progress progress-striped active page-progress-bar">
-            <div class="bar"></div>
-          </div>
+      <div id="splash-page" ng-show="vm.showSplash" class="loading" ng-class="{'loading': vm == null || vm.showSplash == null || vm.showSplash, 'complete' : !vm.showSplash}">
+        <div id="loading-overlay-wrap">
+		  <div id="loading-overlay">
+			<h1 class="loading-message">Application loading</h1>
+
+			<div class="loader">
+			  <div class="loader-inner ball-scale-multiple">
+				<div></div>
+				<div></div>
+				<div></div>
+			  </div>
+			</div>
+
+		  </div>
         </div>
       </div>
     </div>
 
-    <script src="js/lib-f0946a76d0.js"></script>
+    <script src="js/lib-efe83582a2.js"></script>
 
-    <script src="js/app-b1acf4e808.js"></script>
+    <script src="js/app-0e3daa4c69.js"></script>
   </body>
 </html>

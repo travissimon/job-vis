@@ -7365,7 +7365,7 @@ body {
 .navbar-brand {
   display: none;
   height: 50px;
-  padding: 0px 10px 0px 40px;
+  padding: 12px 10px 0px 40px;
   margin: 0px;
   float: left;
 }
